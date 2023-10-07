@@ -55,9 +55,6 @@ server.post("/menu", (request, response) => {
         )
 });
 
-
-
-
 //Initialize the server 
 server.listen(process.env.PORT, () => { 
     console.log("server have initialized in PORT: ", process.env.PORT)

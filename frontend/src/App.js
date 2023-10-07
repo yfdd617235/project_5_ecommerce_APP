@@ -1,10 +1,10 @@
 import './App.css';
-import BookingForm from './components/user/BookingForm';
+import User from './components/user/User';
 
 function App() {
   return (
     <div className="App">
-    <BookingForm/>
+    <User/>
     </div>
   );
 }

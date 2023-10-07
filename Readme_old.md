@@ -22,7 +22,7 @@ It is recomendad use separate folders for backend and frontend, these two have t
         - npm install dotenv //to enviromental variables
         - npm install cors //help to comunicate between servers
         - npm install mongoose
-        - npm install express-jwt
+        - npm install express-jwt //autentificación
         - npm install jsonwebtoken
     3. npm i nodemon --save-dev //used to keep running the proyect without need of re-start
     4. In: backend/package.json/"scripts" add:
