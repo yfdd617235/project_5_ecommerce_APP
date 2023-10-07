@@ -46,3 +46,8 @@ It is recomendad use separate folders for backend and frontend, these two have t
         server.listen(PORT, () => { 
             console.log("server have initialized in PORT: ", PORT)
         });
+    6. Add ".gitignore" to backend and write in it:
+        # dependencies
+        /node_modules
+        /.pnp
+        .pnp.js
