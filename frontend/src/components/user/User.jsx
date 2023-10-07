@@ -47,10 +47,10 @@ const User = () => {
                 <Form.Control type="email" name='email' value={form.email} onChange={onChange} placeholder="Type your email" /><br />
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name='password' value={form.password} onChange={onChange} placeholder="Type your password" /><br />
-                <Form.Text className='text-muted'>
+                <Form.Label className='text'>
                   Your information won´t be shared or re-used
-                </Form.Text>
-                <Button variant="danger" type="submit">
+                </Form.Label>
+                <Button variant="warning" type="submit">
                   Submit
                 </Button>
               </Form>
