@@ -1,24 +1,16 @@
 //Import Environment Variables
 require('dotenv').config()
-
 const express = require('express'); //export server
+const connect = require('./src/config/db')
 
 const server = express(); //conexion
 
 //midlewares: is a indication of a process that the app has to do
 server.use(express.json()); 
 
+connect(); //connect from db
+
 const PORT = 3001; //PORT to be used
-
-
-let menu = [
-    {
-        name: 'Tacos', price: '50'
-    },
-    {
-        name: "burrito", price: '70'
-    }
-]
 
 //endpoint: referenced url
 //Verbs or metods http
@@ -29,30 +21,7 @@ let menu = [
     -DELETE: Delete data
 */
 server.get("/", (request, response) => {
-    response.send("Hellow this is the API ver 1.0.0")
-});
-
-server.get("/menu", (request, response) => {
-    response.json(
-        {
-            data: menu,
-            count: menu.length,
-            message: "The menu was successfully obtained"
-        }
-        )
-});
-
-server.post("/menu", (request, response) => {
-    const food = request.body; //take info from frontend
-    menu.push(food); // add data to the menu
-
-    response.json(
-        {
-            data: menu,
-            count: menu.length,
-            message: "The food was added to the menu"
-        }
-        )
+    response.send("API ver 1.0.0")
 });
 
 //Initialize the server 
