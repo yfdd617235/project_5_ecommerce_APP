@@ -2,7 +2,7 @@
 require('dotenv').config()
 const express = require('express'); //export server
 const connect = require('./src/config/db')
-
+const product = require('./src/routes/products')
 const server = express(); //conexion
 
 //midlewares: is a indication of a process that the app has to do
@@ -23,6 +23,8 @@ const PORT = 3001; //PORT to be used
 server.get("/", (request, response) => {
     response.send("API ver 1.0.0")
 });
+
+product(server)
 
 //Initialize the server 
 server.listen(process.env.PORT, () => { 
