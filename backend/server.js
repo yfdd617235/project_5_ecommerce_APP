@@ -1,18 +1,18 @@
 //Import Environment Variables
 require('dotenv').config()
 const express = require('express'); //export server
+const cors = require('cors')
 const connect = require('./src/config/db')
 const product = require('./src/routes/products')
 const server = express(); //conexion
 
+
+server.use(cors())
 //midlewares: is a indication of a process that the app has to do
 server.use(express.json()); 
 
 connect(); //connect from db
 
-const PORT = 3001; //PORT to be used
-
-//endpoint: referenced url
 //Verbs or metods http
 /*
     -GET: obtain data
