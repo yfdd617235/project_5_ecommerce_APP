@@ -3,7 +3,10 @@ require('dotenv').config()
 const express = require('express'); //export server
 const cors = require('cors')
 const connect = require('./src/config/db')
+
 const product = require('./src/routes/products')
+const auth = require('./src/routes/auth')
+
 const server = express(); //conexion
 
 
@@ -25,6 +28,7 @@ server.get("/", (request, response) => {
 });
 
 product(server)
+auth(server)
 
 //Initialize the server 
 server.listen(process.env.PORT, () => { 
