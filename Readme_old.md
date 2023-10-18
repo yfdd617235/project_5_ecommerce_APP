@@ -24,6 +24,7 @@ It is recomendad use separate folders for backend and frontend, these two have t
         - npm install mongoose
         - npm install express-jwt //autentificación
         - npm install jsonwebtoken
+        - npm install bcrypt
     3. npm i nodemon --save-dev //used to keep running the proyect without need of re-start
     4. In: backend/package.json/"scripts" add:
     ,
