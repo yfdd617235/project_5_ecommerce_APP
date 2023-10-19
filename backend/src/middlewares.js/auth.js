@@ -5,7 +5,7 @@ const getToken = (req) =>{
     const{authorization} = req.headers
     if(authorization){
         const [type, token] = authorization.split(' ')
-        return type === 'Bearer' || type === 'Token' ? token: null
+        return type === 'Bearer' || type === 'Token' ? token : null
     }
     return null
 }
@@ -13,8 +13,8 @@ const getToken = (req) =>{
 const auth = expressjwt({
     secret: process.env.JWTKEY,
     algorithms: ['HS256'],
-    userProperty: 'User',
+    userProperty: 'user',
     getToken
 })
 
-module.exports = auth;
+module.exports = auth

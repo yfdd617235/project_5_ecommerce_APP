@@ -6,12 +6,13 @@ const userSchema = new mongoose.Schema({
     LastName: String,
     phone: String,
     email: String,
-    password: Number
+    password: String
 });
 
 userSchema.methods.hashPassword = function(password){
-    this.password = bcrypt.hashSync(password, 10000)
+    this.password = bcrypt.hashSync(password, '10000');
 }
+
 
 const User = mongoose.model('User', userSchema)
 

@@ -25,4 +25,36 @@ const signUp = async(req, res) =>{
 
 }
 
-module.exports = signUp;
+const logIn = async(req, res) =>{
+    const {email, password} = req.body
+    console.log(email.password)
+    if(!(email && password)){
+        return res.status(400).json({
+            success: false,
+            messge: 'Credentials not registered'
+        })
+    }
+    //consult user in database
+    const user = await User.findOne({email})
+    console.log("user")
+
+    if (email === user.email && bcrypt.compareSync(password, user.password)){
+        const userJSON = user.toJSON()
+        const token = jwt.sign(userJSON, process.env.JWTKEY, {expiresIn: '1d'})
+        return res.json({
+            success: true,
+            message: "User Logged",
+            token
+        })
+    }
+
+    return res.status(400).json({
+        success: false,
+        message: "User not found"
+    })
+}
+
+module.exports = {
+    signUp,
+    logIn
+};
