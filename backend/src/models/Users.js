@@ -9,8 +9,14 @@ const userSchema = new mongoose.Schema({
     password: String
 });
 
+// userSchema.methods.hashPassword = function(password){
+//     this.password = bcrypt.hashSync(password, '10');
+// }
+
 userSchema.methods.hashPassword = function(password){
-    this.password = bcrypt.hashSync(password, '10000');
+    const saltRounds = 10;
+    const salt = bcrypt.genSaltSync(saltRounds);
+    this.password = bcrypt.hashSync(password, salt);
 }
 
 
