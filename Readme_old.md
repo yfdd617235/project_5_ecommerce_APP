@@ -12,6 +12,7 @@ It is recomendad use separate folders for backend and frontend, these two have t
         - npm install react-bootstrap
         - npm install bootstrap
         - npm install react-icons
+        - npm install --save react-toastify
     2. Import for routing:
         in App.js:
             - import './App.css';
