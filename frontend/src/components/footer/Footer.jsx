@@ -1,6 +1,6 @@
 import React from 'react'
 import Col from 'react-bootstrap/Col';
-//import logob from '../logos/grillsvgw.svg';
+import logoE from '../logos/logoE.svg';
 import img from './wapp.svg';
 import img1 from './location.svg'
 import './footer.css';
@@ -17,8 +17,8 @@ function Footer() {
     <div className='footer-container'>
       <div className='info-container'>
         <Col className='col-container1 col-md-5' >
-          {/* <h3>Texas Grill <img className='img-logo' src={logob} alt="grill-img" /></h3><br /> */}
-          <p>Savor the bold taste of Texas at our grill restaurant. From mouthwatering smoked meats to classic Texan dishes, we bring the heart of BBQ country to your table.</p>
+          <h3>E-COMMERCE <img className='img-logo' src={logoE} alt="Logo-Ecommerce" /></h3><br />
+          <p>Discover top-notch products at our e-commerce hub. we offer curated selections for every taste. Experience seamless, secure, and swift online shopping. Your destination for all things fabulous!</p>
         </Col>
 
         <Col className='col-container links' >

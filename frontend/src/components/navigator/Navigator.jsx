@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-// import logob from '../logos/grillsvgw.svg'
+import logoE from '../logos/logoE.svg';
 import './navigator.css'
 
 function Navigator() {
@@ -12,7 +12,7 @@ function Navigator() {
             <div className='nav-container'>
                 <div className='name-container'>
                     <h2>E-COMMERCE</h2>
-                    {/* <img className='img-logo' src={logob} alt="grill-img"/> */}
+                    <img className='img-logo' src={logoE} alt="Logo-Ecommerce" />
                 </div>
                 <nav className='navigator' >
                     <ul className='navMenu' >
