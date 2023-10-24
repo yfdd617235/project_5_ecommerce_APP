@@ -11,7 +11,23 @@ It is recomendad use separate folders for backend and frontend, these two have t
         - npm install react-router-dom
         - npm install react-bootstrap
         - npm install bootstrap
-
+        - npm install react-icons
+    2. Import for routing:
+        in App.js:
+            - import './App.css';
+            - import {Routes, Route} from 'react-router-dom'
+            - import SignUp from './components/signUp/SignUp'
+        in index.js:
+            - import React from 'react';
+            - import ReactDOM from 'react-dom/client';
+            - import './index.css';
+            - import 'bootstrap/dist/css/bootstrap.min.css';
+            - import 'bootstrap/dist/js/bootstrap.bundle.min';
+            - import { BrowserRouter as Router } from 'react-router-dom';
+            - import App from './App';
+            - Add change: 
+            <React.StrictMode><App /></React.StrictMode> for: 
+            <Router><App /></Router>
 
 
 ##Backend folder

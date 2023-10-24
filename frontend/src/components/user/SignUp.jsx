@@ -1,11 +1,11 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import React, { useState } from 'react'
-import './user.css'
+import './signUp.css'
 
 //import db from '../../services/firebase.js'
 
-const User = () => {
+const SignUp = () => {
 
     const initialFormState = {
         name: "",
@@ -61,4 +61,4 @@ const User = () => {
   );
 }
 
-export default User;
+export default SignUp;
