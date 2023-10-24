@@ -19,6 +19,7 @@ function Navigator() {
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li>
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>
+                        <li><NavLink onClick={clicnavtop} className="link-menu" to="/Products">Products</NavLink></li>
                     </ul>
                 </nav>
             </div>
