@@ -37,9 +37,9 @@ function Navigator() {
                 <nav className='navigator' >
                     <ul className='navMenu' >
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li>
-                        <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/Products">Products</NavLink></li>
+                        {!user.token &&<li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}
                         {user.token && <li><Button variant="dark" onClick={() => { handleSignOut(); clicnavtop(); }} className="link-menu">Log Out</Button></li>}
                     </ul>
                 </nav>
