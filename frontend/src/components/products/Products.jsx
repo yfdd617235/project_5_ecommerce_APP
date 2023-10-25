@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ToastContainer} from 'react-toastify';
+// import { ToastContainer} from 'react-toastify';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -40,7 +40,7 @@ function Products() {
           )}
         </div>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -52,8 +52,7 @@ function Products() {
         pauseOnHover
         theme="Colored"
       />
-      {/* Same as */}
-      <ToastContainer />
+      <ToastContainer /> */}
     </>
   );
 }

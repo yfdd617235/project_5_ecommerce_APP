@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import React, { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './signUp.css'
 
@@ -80,20 +80,6 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="Colored"
-      />
-      {/* Same as */}
-      <ToastContainer />
     </>
   );
 }

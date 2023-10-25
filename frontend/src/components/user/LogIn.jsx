@@ -1,11 +1,11 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import React, { useState, useContext} from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './signUp.css'
 import { UserContext } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'
 const LogIn = () => {
   //Declare the values and functions to be used of context
   const {user, saveToken} = useContext(UserContext)
-  const navigate = useNavigate()
+  const navigate = useNavigate() //to navegate between pages afer login
 
   const initialFormState = {
     email: "",
@@ -50,7 +50,7 @@ const LogIn = () => {
       console.log(result.token)
       saveToken(result.token)
     })
-    .then(navigate("/Products"))
+    .then(navigate("/Profile"))
 
     setForm(initialFormState); //Empty form after sending
   }
@@ -79,20 +79,6 @@ const LogIn = () => {
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="Colored"
-      />
-      {/* Same as */}
-      <ToastContainer />
     </>
   );
 }
