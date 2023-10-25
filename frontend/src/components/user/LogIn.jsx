@@ -1,15 +1,20 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import React, { useState } from 'react'
+import React, { useState, useContext} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './signUp.css'
+import { UserContext } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom'
 
 
 
 //import db from '../../services/firebase.js'
 
 const LogIn = () => {
+  //Declare the values and functions to be used of context
+  const {user, saveToken} = useContext(UserContext)
+  const navigate = useNavigate()
 
   const initialFormState = {
     email: "",
@@ -28,7 +33,10 @@ const LogIn = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(form)
-    }).then(res => res.json()).then(result => toast.success('User Logged!', {
+    })
+    .then(res => res.json())
+    .then(result => {
+      toast.success('User Logged!', {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -37,7 +45,12 @@ const LogIn = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      }));
+      })
+      //Function Context to save the token
+      console.log(result.token)
+      saveToken(result.token)
+      navigate("/Products")
+    });
 
     setForm(initialFormState); //Empty form after sending
   }
