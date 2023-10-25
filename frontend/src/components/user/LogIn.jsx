@@ -38,7 +38,7 @@ const LogIn = () => {
     .then(result => {
       toast.success('User Logged!', {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -49,8 +49,8 @@ const LogIn = () => {
       //Function Context to save the token
       console.log(result.token)
       saveToken(result.token)
-      navigate("/Products")
-    });
+    })
+    .then(navigate("/Products"))
 
     setForm(initialFormState); //Empty form after sending
   }
