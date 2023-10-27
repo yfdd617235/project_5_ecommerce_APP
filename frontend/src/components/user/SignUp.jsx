@@ -4,11 +4,13 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+//import { UserContext } from '../../context/UserContext';
 import './signUp.css'
 
 //import db from '../../services/firebase.js'
 
 const SignUp = () => {
+  //const {saveToken} = useContext(UserContext)
   const navigate = useNavigate()
   const initialFormState = {
     name: "",
@@ -33,7 +35,8 @@ const SignUp = () => {
       body: JSON.stringify(form)
     })
     .then(res => res.json())
-    .then(result => toast.success('User Successfully registered!', {
+    .then(result => {
+      toast.success('User Successfully registered!', {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -42,7 +45,7 @@ const SignUp = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-    }))
+    })})
     .then(navigate("/Profile"))
 
     // const resp = addDoc(collection(db, 'booking'), form)

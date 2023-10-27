@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     LastName: String,
     phone: String,
     email: String,
-    password: String
+    password: String,
+    role: String
 });
 
 // userSchema.methods.hashPassword = function(password){

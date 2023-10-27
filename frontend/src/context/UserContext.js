@@ -5,12 +5,14 @@ const {Provider, Consumer} = UserContext;
 
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({
-        token: null
+        token: null,
+        role: null
     })
 
-    const saveToken = (token) => {
+    const saveToken = (token, role) => {
         localStorage.setItem('token', token) //save token in local storage
-        setUser({token})
+        localStorage.setItem('role', role) //save role in local storage
+        setUser({token, role})
     }
 
     const clearToken = () =>{
