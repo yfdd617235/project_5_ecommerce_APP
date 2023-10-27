@@ -3,12 +3,13 @@ import Button from 'react-bootstrap/Button'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import './signUp.css'
 
 //import db from '../../services/firebase.js'
 
 const SignUp = () => {
-
+  const navigate = useNavigate()
   const initialFormState = {
     name: "",
     LastName: "",
@@ -30,7 +31,9 @@ const SignUp = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(form)
-    }).then(res => res.json()).then(result => toast.success('User Successfully registered!', {
+    })
+    .then(res => res.json())
+    .then(result => toast.success('User Successfully registered!', {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -39,7 +42,8 @@ const SignUp = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-    }));
+    }))
+    .then(navigate("/Profile"))
 
     // const resp = addDoc(collection(db, 'booking'), form)
     //   .then(resp => alert("Booking saved"))

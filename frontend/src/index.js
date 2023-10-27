@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import { UserProvider } from './context/UserContext';
+import { CartProvider } from './context/cartContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,9 @@ root.render(
 
 <Router>
   <UserProvider>
-    <App />
+    <CartProvider>
+      <App />
+    </CartProvider>
   </UserProvider>
 </Router>
   // <React.StrictMode>

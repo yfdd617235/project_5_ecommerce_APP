@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import logoE from '../logos/logoE.svg';
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import './navigator.css'
@@ -12,7 +12,7 @@ function Navigator() {
     function  clicnavtop(){
         window.scrollTo({top:0})
       }
-    const {user, clearToken} = useContext(UserContext);
+    const {user, saveToken, clearToken} = useContext(UserContext);
     const handleSignOut = () => {
         toast.warn('User Logged Out!', {
             position: "top-right",
@@ -27,6 +27,13 @@ function Navigator() {
         clearToken();
         navigate("/")
     };
+
+    //This is for: If user press F5 or refresh the website, the token won´t be erased
+    useEffect(() => {
+        const localToken = localStorage.getItem('token')
+        saveToken(localToken)
+    }, []);
+
     return (
         <>
             <div className='nav-container'>
@@ -36,11 +43,12 @@ function Navigator() {
                 </div>
                 <nav className='navigator' >
                     <ul className='navMenu' >
-                        <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li>
-                        <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>
+                        <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li> 
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/Products">Products</NavLink></li>
-                        {!user.token &&<li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}
-                        {user.token && <li><Button variant="dark" onClick={() => { handleSignOut(); clicnavtop(); }} className="link-menu">Log Out</Button></li>}
+                        {user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/Profile">Profile</NavLink></li>}
+                        {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>}
+                        {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}{/*Validation to don´t show logIn*/}
+                        {user.token && <li><Button variant="dark" onClick={() => { handleSignOut(); clicnavtop(); }} className="link-menu">Log Out</Button></li>} {/*Validation to show button*/}
                     </ul>
                 </nav>
             </div>

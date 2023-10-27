@@ -23,10 +23,9 @@ function Footer() {
 
         <Col className='col-container links' >
           <h5> Web Navigator</h5><br />
-          <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li>
-          <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>
-          <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>
+          <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li> 
           <li><NavLink onClick={clicnavtop} className="link-menu" to="/Products">Products</NavLink></li>
+          <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>
         </Col>
 
         <Col className='col-container'>

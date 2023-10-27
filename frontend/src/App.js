@@ -8,21 +8,23 @@ import Products from './components/products/Products'
 import Profile from './components/user/Profile'
 import Footer from './components/footer/Footer'
 import {ToastContainer} from 'react-toastify';
+import { UserContext } from './context/UserContext';
+import { useContext } from 'react';
 
 
 function App() {
-
+const {user} = useContext(UserContext)
 
 
   return (
     <div className="App">
       <Navigator/>
       <Routes>
-        <Route path='/SignUp' element ={<SignUp/>}/>
-        <Route path='/LogIn' element ={<LogIn/>}/>
+        {!user.token &&<Route path='/SignUp' element ={<SignUp/>}/>}
+        {!user.token && <Route path='/LogIn' element ={<LogIn/>}/>}
         <Route path='/' element ={<Presentation/>}/>
         <Route path='/Products' element ={<Products/>}/>
-        <Route path='/Profile' element ={<Profile/>}/>
+        {user.token && <Route path='/Profile' element ={<Profile/>}/>}
       </Routes>
       <ToastContainer/><ToastContainer />
       <Footer className="footer"></Footer>

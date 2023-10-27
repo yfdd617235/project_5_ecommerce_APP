@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
   //Declare the values and functions to be used of context
-  const {user, saveToken} = useContext(UserContext)
+  const {saveToken} = useContext(UserContext)
   const navigate = useNavigate() //to navegate between pages afer login
 
   const initialFormState = {
