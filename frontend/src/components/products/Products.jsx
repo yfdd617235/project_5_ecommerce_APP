@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // import { ToastContainer} from 'react-toastify';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 import './products.css'
+import { CartContext } from '../../context/cartContext';
 
 function Products() {
+  const {addProduct} = useContext(CartContext)
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
     fetch('http://localhost:3001/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
   },[])
+  const addProd = (product) =>{
+    addProduct(product)
+  }
 
   return (
     <>
@@ -32,7 +37,7 @@ function Products() {
                     Stock: {product.stock}
                   </Card.Text>
                   <Button variant="dark">Price {product.price} USD</Button>
-                  <Button variant="warning"> Add to Cart </Button>
+                  <Button variant="warning" onClick={() => addProd(product)}> Add to Cart </Button>
                 </Card.Body>
               </Card>
             )
