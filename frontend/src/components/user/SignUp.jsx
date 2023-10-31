@@ -46,7 +46,7 @@ const SignUp = () => {
       progress: undefined,
       theme: "colored",
     })})
-    .then(navigate("/Profile"))
+    .then(navigate("/LogIn"))
 
     // const resp = addDoc(collection(db, 'booking'), form)
     //   .then(resp => alert("Booking saved"))
