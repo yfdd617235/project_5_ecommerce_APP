@@ -7,14 +7,14 @@ import './products.css'
 import { CartContext } from '../../context/cartContext';
 
 function Products() {
-  const {addProduct} = useContext(CartContext)
+  const {addProductToCart} = useContext(CartContext)
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
     fetch('http://localhost:3001/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
   },[])
   const addProd = (product) =>{
-    addProduct(product)
+    addProductToCart(product)
   }
 
   return (

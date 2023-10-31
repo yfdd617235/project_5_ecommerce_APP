@@ -19,8 +19,5 @@ root.render(
     </CartProvider>
   </UserProvider>
 </Router>
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
 );
 

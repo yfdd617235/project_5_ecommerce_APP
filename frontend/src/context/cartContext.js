@@ -1,60 +1,96 @@
-import { useState, useContext, createContext, useEffect } from "react";
-
+import { useState, createContext, useEffect } from "react";
 const CartContext = createContext();
+
+const initialState = {
+    items: [],
+    total: 0,
+    amount: 0
+  }
+
 const CartProvider = ({children}) =>{
-    const[cart, setCart] = useState([]);
 
-    const emptyCart = () => setCart([])
+    //Obtain the cart from local storage, if it does not exist, it uses the initial state
+    const[cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || initialState);
 
+    //Empty the cart, It is set the initialState
+    const emptyCart = () => setCart(initialState)
 
-    const findProdInCart = (product) =>{
-        console.log("Product test 1: ", product)
-        return cart.findIndex(cartItem => cartItem.id === product.id)
+    //search if the product is in the cart and obtain its index
+    const findProductInCart = (product) =>{
+        
+        return cart.items.findIndex(item => item._id === product._id)
         //-1 is does´not exist and 0-n exists and retuns the index
     }
 
-    const deleteProduct = (product) =>{
-        const indexItem = findProdInCart(product)
-        if (indexItem !== -1){
-            cart.splice(indexItem, 1) 
+    //Add a product to the cart
+    const addProductToCart = (product) => {
+        //Loof for if the product is in de cart
+        const itemPosition = findProductInCart(product)
+
+        //if the product is in the cart, increase its count
+        if (itemPosition !== -1) {
+            cart.items[itemPosition].quantity += 1
+
+        } else { // if the product is not in the cart, create it and increase its amount
+            cart.items.push({ ...product, quantity: 1 }) // add the product +1
+            cart.total += 1 // aumentar el total de productos
         }
-    }
 
-    // const addProduct = (product) =>{
-    //     console.log("Product test 2: ", product)
-    //     const indexItem = findProdInCart(product)
-    //     if (indexItem !== -1){
-    //         console.log("Product test 3: ", product)
-    //     }else{
-    //         cart.push({ ...product})
-    //         console.log("Product test 4: ", product)
-    //     }
+        console.log("THEproduct: ",product)
+        // increase amount to pay
+        cart.amount += product.price
 
-    //     setCart(cart)
-    //     console.log("Cart: ", cart)
-    // }
-
-    const addProduct = (product) => {
-        const indexItem = findProdInCart(product);
-        if (indexItem !== -1) {
-          const newCart = [...cart]; // Crear una nueva copia del carrito
-          // Modificar la copia (por ejemplo, aumentar la cantidad del producto en lugar de agregarlo nuevamente)
-          newCart[indexItem].quantity += 1;
-          setCart(newCart); // Establecer la nueva copia como el estado
-        } else {
-          const newCart = [...cart, { ...product, quantity: 1 }]; // Agregar un nuevo producto con cantidad 1
-          setCart(newCart); // Establecer la nueva copia como el estado
-        }
+        // Update the status of the cart, hook useEffect updates the localstorage
+        setCart({ ...cart })
+        console.log(cart)
+        //setCart( {items: cart.items, total: cart.total, amount: cart.amout} )
       };
-    
 
-    useEffect(()=>{
-        let currentCart = localStorage.getItem("cart")
-        if(currentCart) setCart(JSON.parse(currentCart))
-    },[])
+    
+    // Delete product from the cart
+    const deleteProductFromCart = (product) => {
+      // Search the product in the cart and obtain its position
+      const itemPosition = findProductInCart(product)
+
+      // if itemPosition is not -1, delete the product from the cart
+      if (itemPosition !== -1) {
+          cart.items.splice(itemPosition, 1)
+          cart.total -= 1
+          cart.amount -= product.precio
+
+          // Update the status of the cart, hook useEffect updates the localstorage
+          setCart({ ...cart })
+      }
+      setCart({ ...cart })
+    };
+
+    const decreaseProductFromCart = (product) => {
+      // Search the product in the cart and obtain its position
+      const itemPosition = findProductInCart(product)
+
+      // if itemPosition is not -1, decrease the quantity of product and the ammount to pay
+      if (itemPosition !== -1) {
+          if (cart.items[itemPosition].quantity === 1) {
+              deleteProductFromCart(product)
+          } else {
+              cart.items[itemPosition].quantity -= 1
+              cart.amount -= product.precio
+
+              // Update the status of the cart, hook useEffect updates the localstorage
+              setCart({ ...cart })
+          }
+      }
+      setCart({ ...cart })
+    }
+    
+    //Hook of useEffect is executed each time the status of the cart changes, each setCart
+    useEffect(() => {
+      // actualizar el localStorage
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     return(
-        <CartContext.Provider value={{cart, setCart, emptyCart, deleteProduct, addProduct}}>
+        <CartContext.Provider value={{cart, setCart, emptyCart, deleteProductFromCart, addProductToCart, decreaseProductFromCart}}>
             {children}
         </CartContext.Provider>
     )
