@@ -9,7 +9,7 @@ function CartItem({item}) {
     return(
         <Row>
             <Col md={2}>
-                <Button variant="light" className='m-2 mt-0' onClick={
+                <Button variant="danger" className='m-2 mt-0' onClick={
                     () => {decreaseProductFromCart(item)}
                 }>-</Button>
                 <Badge bg="dark" style={{ fontSize: '1.1em' }}>{item.quantity}</Badge>
@@ -24,7 +24,7 @@ function CartItem({item}) {
                 {item.description && item.description.length? (
                         item.description
                     ): (
-                        <Alert variant='warning'>No hay descripción</Alert>
+                        <Alert variant='warning'>There is not description</Alert>
                     )
                 }
             </Col>

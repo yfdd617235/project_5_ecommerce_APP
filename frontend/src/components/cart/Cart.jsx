@@ -1,39 +1,3 @@
-// import React, {useContext} from 'react';
-// import { CartContext } from '../../context/cart';
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
-// import * as Icon from 'react-icons/fa6'
-
-// const Cart = () => {
-//     const  {cart}  = useContext(CartContext)
-//     console.log("cart: ",cart)
-//     return (
-//         <>
-//         CART
-//             <div>
-//                 {cart.items.map(cartItem => {
-//                     return (
-//                         <Card style={{ width: '18rem' }}  className='card text'>
-//                             <Card.Img variant="top" src={cartItem.img} />
-//                             <Card.Body>
-//                                 <Card.Title>{cartItem.name}</Card.Title>
-//                                 <Card.Text>
-//                                     {cartItem.description}
-//                                 </Card.Text>
-//                                 <Button variant="dark">Price {cartItem.price} USD</Button>
-//                                 <Button variant="primary"> + </Button>
-//                                 <Button variant="primary"> - </Button>
-//                                 <Button variant="danger"> <Icon.FaTrash/> </Button>
-//                             </Card.Body>
-//                         </Card>
-//                     )
-//                 })}
-
-//             </div>
-//         </>
-//     );
-// }
-
 // export default Cart;
 
 import React, { useContext, useState } from 'react'
@@ -113,10 +77,10 @@ function Cart() {
                                             </Row>
                                         </ListGroup.Item>
                                         {
-                                            cart.items.map(item => {
+                                            cart.items.map((item, index) => {
                                                 return(
                                                     <ListGroup.Item>
-                                                            <CartItem item = {item}/>
+                                                            <CartItem key={index} item = {item}/>
                                                     </ListGroup.Item>
                                                 )
                                             })
@@ -142,12 +106,13 @@ function Cart() {
                             </Row>
                             <hr />
 
-
-
-
                         </>
                     ) : (
+                        <>
+                        <br /><br /><br /><br /><br />
                         <h1>No products in the Cart</h1>
+                        <br /><br /><br /><br /><br />
+                        </>  
                     )
                 }
             </div>
