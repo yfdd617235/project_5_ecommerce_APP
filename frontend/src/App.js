@@ -2,7 +2,7 @@ import './App.css';
 import {Routes, Route} from 'react-router-dom'
 import SignUp from './components/user/SignUp'
 import LogIn from './components/user/LogIn'
-import Presentation from './components/presentation/Presentation'
+import Home from './components/home/Home'
 import Navigator from './components/navigator/Navigator'
 import Products from './components/products/Products'
 import Profile from './components/user/Profile'
@@ -24,7 +24,7 @@ const {user} = useContext(UserContext)
       <Routes>
         {!user.token &&<Route path='/SignUp' element ={<SignUp/>}/>}
         {!user.token && <Route path='/LogIn' element ={<LogIn/>}/>}
-        <Route path='/' element ={<Presentation/>}/>
+        <Route path='/' element ={<Home/>}/>
         <Route path='/Products' element ={<Products/>}/>
         {user.token && <Route path='/Profile' element ={<Profile/>}/>}
         <Route path='/Cart' element ={<Cart/>}/>
