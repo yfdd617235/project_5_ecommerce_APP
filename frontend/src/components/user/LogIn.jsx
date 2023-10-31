@@ -1,6 +1,6 @@
-import Form from 'react-bootstrap/Form'
+import React, { useState, useEffect, useContext} from 'react'
 import Button from 'react-bootstrap/Button'
-import React, { useState, useContext} from 'react'
+import Form from 'react-bootstrap/Form'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './signUp.css'
@@ -11,16 +11,15 @@ import { useNavigate } from 'react-router-dom';
 
 //import db from '../../services/firebase.js'
 
-const LogIn = () => {
+function LogIn() {
   //Declare the values and functions to be used of context
-  const {saveToken} = useContext(UserContext)
+  const {user, saveToken} = useContext(UserContext)
   const navigate = useNavigate() //to navegate between pages afer login
-
-  const initialFormState = {
-    email: "",
-    password: ""
-  };
-  const [form, setForm] = useState(initialFormState);
+  //This will save the values of the form
+  const [form, setForm] = useState({
+    password: '',
+    email: ''
+  })
 
   async function onSave(event) {
     event.preventDefault(); //It is necessary to avoid charge all webpage clicking Submit (use this always for submit events)
@@ -49,10 +48,9 @@ const LogIn = () => {
       //Function Context to save the token
       console.log(result.token)
       saveToken(result.token)
-    })
-    .then(navigate("/Profile"))
+      navigate("/Profile")
+    });
 
-    setForm(initialFormState); //Empty form after sending
   }
 
   function onChange(event) {
@@ -61,6 +59,12 @@ const LogIn = () => {
     // console.log(event.target.value);
     setForm({ ...form, [event.target.name]: event.target.value })
   }
+
+  useEffect(() =>{
+    if(user.token){
+      navigate("/Profile")
+    }
+  })
 
   return (
     <>
