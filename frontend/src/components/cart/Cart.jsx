@@ -60,19 +60,19 @@ function Cart() {
                                         <ListGroup.Item>
                                             <Row>
                                                 <Col md={2}>
-                                                    <Alert variant="secondary">Quantity</Alert>
+                                                    <h5>Quantity</h5> 
                                                 </Col>
                                                 <Col>
-                                                    <Alert variant="secondary">Product</Alert>
+                                                    <h5>Product</h5>
                                                 </Col>
                                                 <Col>
-                                                    <Alert variant="secondary">Detail</Alert>
+                                                    <h5>Detail</h5>
                                                 </Col>
                                                 <Col>
-                                                    <Alert variant="secondary">Price</Alert>
+                                                    <h5>Price</h5>
                                                 </Col>
                                                 <Col>
-                                                    <Alert variant="secondary">Subtotal</Alert>
+                                                    <h5>Subtotal</h5>
                                                 </Col>
                                             </Row>
                                         </ListGroup.Item>

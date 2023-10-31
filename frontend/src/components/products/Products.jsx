@@ -1,9 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
 // import { ToastContainer} from 'react-toastify';
+import Camera from './imgs/Camera.jpg'
+import Laptop from './imgs/Laptop.jpg'
+import SMART_TV from './imgs/SMART_TV.jpg'
+import Smartwatch from './imgs/Smartwatch.jpg'
+import Cellphone from './imgs/Cellphone.jpg'
+import Portable_Screen from './imgs/Portable_Screen.jpg'
+import Tablet from './imgs/Tablet.jpg'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { CartContext } from '../../context/cartContext';
 import './products.css'
+
+const productImages = {
+  Camera: Camera,
+  Laptop: Laptop,
+  SMART_TV: SMART_TV,
+  Smartwatch: Smartwatch,
+  Cellphone: Cellphone,
+  Portable_Screen: Portable_Screen,
+  Tablet: Tablet
+};
 
 function Products() {
   const {addProductToCart} = useContext(CartContext)
@@ -17,6 +35,9 @@ function Products() {
     addProductToCart(product)
   }
 
+  // products.map((product) => {
+  //   console.log("Products name: ", product.name)
+  // })
   return (
     <>
       <div className='menu'>
@@ -25,9 +46,11 @@ function Products() {
         </div >
         <div className='cards'>
           {products.map((product, index) => {
+            const productImage = productImages[product.name];
             return (
+              
               <Card style={{ width: '18rem' }} key={index} className='card text'>
-                <Card.Img variant="top" src={product.img} />
+                <Card.Img variant="top" src={productImage} alt={product.name}/>
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>
