@@ -79,8 +79,8 @@ function Cart() {
                                         {
                                             cart.items.map((item, index) => {
                                                 return(
-                                                    <ListGroup.Item>
-                                                            <CartItem key={index} item = {item}/>
+                                                    <ListGroup.Item key={index}>
+                                                            <CartItem  item = {item}/>
                                                     </ListGroup.Item>
                                                 )
                                             })
