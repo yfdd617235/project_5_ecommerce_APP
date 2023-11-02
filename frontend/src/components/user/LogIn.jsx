@@ -43,12 +43,10 @@ function LogIn() {
             theme: 'colored'
           })
         ]);
-        // saveToken(result.token);
-        // saveUserProfile(result.userProfile);
-        // saveToken(result.userProfile)
-        //saveUserProfile(result.userProfile)
       } else {
-        throw new Error('Invalid credentials. Please try again.');
+        //Manage error of the server
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Invalid credentials. Please try again.');
       }
     } catch (error) {
       toast.error(error.message, {

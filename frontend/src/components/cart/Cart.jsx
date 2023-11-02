@@ -91,7 +91,6 @@ function Cart() {
                             <Row>
                                 <Col>
                                     Productos:{cart.total}
-
                                 </Col>
                             </Row>
                             <Row>
@@ -101,7 +100,7 @@ function Cart() {
                             </Row>
                             <Row>
                                 <Col>
-                                    <span className='text-bold'> A pagar <sub>(Subtotal + IVA)</sub></span>: {cart.amount * (1 + IVA)}
+                                    <span className='text-bold'> Amount <sub>(Subtotal + Tax)</sub></span>: {cart.amount * (1 + IVA)}
                                 </Col>
                             </Row>
                             <hr />
