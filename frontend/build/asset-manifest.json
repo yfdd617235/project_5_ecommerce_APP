@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d01e1b01.css",
+    "main.js": "/static/js/main.8be71779.js",
+    "static/media/Tablet.jpg": "/static/media/Tablet.7a66ae5ca80923367c14.jpg",
+    "static/media/Camera.jpg": "/static/media/Camera.e2d84bf67e6bdad61b84.jpg",
+    "static/media/Laptop.jpg": "/static/media/Laptop.41f60aa0efb81de4c70f.jpg",
+    "static/media/img2.jpg": "/static/media/img2.41f60aa0efb81de4c70f.jpg",
+    "static/media/Portable_Screen.jpg": "/static/media/Portable_Screen.3dc573a177782d47d3d8.jpg",
+    "static/media/Cellphone.jpg": "/static/media/Cellphone.61c5ed74c073b30d292f.jpg",
+    "static/media/img1.jpg": "/static/media/img1.61c5ed74c073b30d292f.jpg",
+    "static/media/SMART_TV.jpg": "/static/media/SMART_TV.571d3021af19103c3dc5.jpg",
+    "static/media/img3.jpg": "/static/media/img3.571d3021af19103c3dc5.jpg",
+    "static/media/Smartwatch.jpg": "/static/media/Smartwatch.77dd4e0b6c775218a578.jpg",
+    "static/media/img4.jpg": "/static/media/img4.77dd4e0b6c775218a578.jpg",
+    "static/media/user.jpg": "/static/media/user.a019d1e5779060966a7f.jpg",
+    "static/media/logoE.svg": "/static/media/logoE.0d0667ddb4d6caa73a1ff381b0fe12cf.svg",
+    "static/media/wapp.svg": "/static/media/wapp.2e43220808c4ccaef7f562055d457a93.svg",
+    "static/media/location.svg": "/static/media/location.8e51b8501cc97152349cbdd97ce8f087.svg",
+    "index.html": "/index.html",
+    "main.d01e1b01.css.map": "/static/css/main.d01e1b01.css.map",
+    "main.8be71779.js.map": "/static/js/main.8be71779.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d01e1b01.css",
+    "static/js/main.8be71779.js"
+  ]
+}
