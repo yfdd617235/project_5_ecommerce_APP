@@ -18,7 +18,8 @@ function LogIn() {
   async function onSave(event) {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/auth/logIn', {
+      const response = await fetch('https://project-5-ecommerce-backend.onrender.com/auth/logIn', {
+      // const response = await fetch('http://localhost:3001/auth/logIn', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

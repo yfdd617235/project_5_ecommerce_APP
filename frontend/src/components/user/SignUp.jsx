@@ -27,7 +27,8 @@ const SignUp = () => {
     console.log("This is the form", form)
 
     //call the endpoint of our webpage
-    await fetch('http://localhost:3001/auth/SignUp', {
+    await fetch('https://project-5-ecommerce-backend.onrender.com/auth/SignUp', {
+    // await fetch('http://localhost:3001/auth/SignUp', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

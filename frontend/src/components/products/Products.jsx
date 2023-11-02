@@ -28,7 +28,8 @@ function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:3001/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
+    fetch('https://project-5-ecommerce-backend.onrender.com/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
+    // fetch('http://localhost:3001/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
   },[])
   
   const addProd = (product) =>{
