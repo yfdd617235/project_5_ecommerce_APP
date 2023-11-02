@@ -36,19 +36,21 @@ const logIn = async(req, res) =>{
 
     //consult user in database
     const user = await User.findOne({email})
-    console.log("user")
-
+    console.log("user: ", user)
+    
     if (email === user.email && bcrypt.compareSync(password, user.password)){
         const userJSON = user.toJSON()
         delete userJSON.password
-        const rol = user.rol
+        const role = user.role
         const token = jwt.sign(userJSON, process.env.JWTKEY, {expiresIn: '7d'})
+        const userProfile = JSON.stringify(user)
 
         return res.json({
             success: true,
             message: "User Logged",
-            rol,
-            token
+            role,
+            token,
+            userProfile
         })
     }
 
@@ -57,8 +59,15 @@ const logIn = async(req, res) =>{
         message: "User not found"
     })
 }
+//----------------------------------
+const Profile = async(req, res) =>{
+    console.log("user profile", req, res)
+}
 
+
+//----------------------------------
 module.exports = {
     signUp,
-    logIn
+    logIn,
+    Profile
 };

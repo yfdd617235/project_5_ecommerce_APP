@@ -40,8 +40,8 @@ function Products() {
   // })
   return (
     <>
-      <div className='menu'>
-        <div className='menu-title'>
+      <div className='main'>
+        <div className='main-title'>
           <h2>PRODUCTS LIST</h2>
         </div >
         <div className='cards'>
@@ -68,19 +68,6 @@ function Products() {
           )}
         </div>
       </div>
-      {/* <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="Colored"
-      />
-      <ToastContainer /> */}
     </>
   );
 }

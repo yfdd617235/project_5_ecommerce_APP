@@ -51,7 +51,7 @@ function Navigator() {
                         {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}{/*Validation to don´t show logIn*/}
                         {user.token && <li><Button variant="dark" onClick={() => { handleSignOut(); clicnavtop(); }} className="link-menu">Log Out</Button></li>} {/*Validation to show button*/}
                     </ul>
-                    <Button variant='outline-secondary'> <Link to='/Cart'><Icon.FaCartPlus/></Link> </Button>
+                     <Link className='Cart' to='/Cart'><Button variant='warning'><Icon.FaCartPlus/></Button></Link> 
                 </nav>
             </div>
 

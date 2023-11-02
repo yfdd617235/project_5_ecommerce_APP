@@ -8,7 +8,7 @@ import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 function LogIn() {
-  const { user, saveToken } = useContext(UserContext);
+  const { user, saveToken, saveUserProfile } = useContext(UserContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({
     password: '',
@@ -28,18 +28,25 @@ function LogIn() {
 
       if (response.ok) {
         const result = await response.json();
-        toast.success('User Logged!', {
-          position: 'top-right',
-          autoClose: 3500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'colored'
-        });
-        saveToken(result.token);
-        navigate('/Profile');
+        saveUserProfile(result.userProfile)
+        await Promise.all([
+          saveToken(result.token),
+          navigate('/Profile'),
+          toast.success('User Logged!', {
+            position: 'top-right',
+            autoClose: 3500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+          })
+        ]);
+        // saveToken(result.token);
+        // saveUserProfile(result.userProfile);
+        // saveToken(result.userProfile)
+        //saveUserProfile(result.userProfile)
       } else {
         throw new Error('Invalid credentials. Please try again.');
       }

@@ -6,13 +6,19 @@ const {Provider, Consumer} = UserContext;
 const UserProvider = ({children}) =>{
     const [user, setUser] = useState({
         token: null,
-        role: null
+        role: null,
+        userProfile: null
     })
 
     const saveToken = (token, role) => {
         localStorage.setItem('token', token) //save token in local storage
         localStorage.setItem('role', role) //save role in local storage
         setUser({token, role})
+    }
+
+    const saveUserProfile = (userProfile) => {
+        localStorage.setItem('userProfile', userProfile)
+        setUser({userProfile})
     }
 
     const clearToken = () =>{
@@ -23,7 +29,7 @@ const UserProvider = ({children}) =>{
     }
 
     return(
-        <Provider value={{user, saveToken, clearToken}}>
+        <Provider value={{user, saveToken, clearToken, saveUserProfile}}>
             {children}
         </Provider>
     )

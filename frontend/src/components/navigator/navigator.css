@@ -69,3 +69,8 @@
     color: #ffffff;
     /* border: solid rgb(255, 0, 0);  #FFCA2C */
 }
+
+.Cart{
+    margin-right: 10px;
+    margin-left: 10px;
+}
