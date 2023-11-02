@@ -1,8 +1,8 @@
 // export default Cart;
 
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import { CartContext } from '../../context/cartContext'
-import { Row, Col, ListGroup, Alert } from 'react-bootstrap'
+import { Row, Col, ListGroup} from 'react-bootstrap'
 import CartItem from './CartItem'
 
 // import { PayPalButtons } from '@paypal/react-paypal-js'
@@ -10,44 +10,44 @@ import CartItem from './CartItem'
 function Cart() {
     const { cart } = useContext(CartContext)
     console.log("cart: ", cart.items)
-    const style = { "layout": "vertical" };
-    const [isPaid, setIsPaid] = useState(false)
+    // const style = { "layout": "vertical" };
+    // const [isPaid, setIsPaid] = useState(false)
     //iva varia segun el pais 
     const IVA = 0.16
 
-    const handleCreateOrder = (data, actions) => {
-        const order = actions.order.create({
-            purchase_units: [
-                {
-                    amount: {
-                        value: (cart.amount * (1 + IVA)).toFixed(2),
-                        currency_code: "MXN"
-                    },
-                    description: "Compra de productos en UCamp Store",
-                    shipping_preference: "NO_SHIPPING"
-                }
-            ],
-            merchant_name: "UCamp Store"
+    // const handleCreateOrder = (data, actions) => {
+    //     const order = actions.order.create({
+    //         purchase_units: [
+    //             {
+    //                 amount: {
+    //                     value: (cart.amount * (1 + IVA)).toFixed(2),
+    //                     currency_code: "MXN"
+    //                 },
+    //                 description: "Compra de productos en UCamp Store",
+    //                 shipping_preference: "NO_SHIPPING"
+    //             }
+    //         ],
+    //         merchant_name: "UCamp Store"
 
-        })
+    //     })
 
-        console.log("order", order)
+    //     console.log("order", order)
 
-        return order
+    //     return order
 
-    }
+    // }
 
-    const handleCancelledPayment = (data, actions) => {
-        console.log("data", data)
-        console.log("actions", actions)
+    // const handleCancelledPayment = (data, actions) => {
+    //     console.log("data", data)
+    //     console.log("actions", actions)
 
-    }
+    // }
 
-    const handlePaidOrder = (data, actions) => {
-        console.log("data", data)
-        console.log("actions", actions)
-        setIsPaid(true)
-    }
+    // const handlePaidOrder = (data, actions) => {
+    //     console.log("data", data)
+    //     console.log("actions", actions)
+    //     setIsPaid(true)
+    // }
     return (
         <>
             <div>
