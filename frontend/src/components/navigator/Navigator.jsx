@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom'
 import logoE from '../logos/logoE.svg';
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, 
+   // useEffect
+} from 'react'
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import './navigator.css'
@@ -13,7 +15,10 @@ function Navigator() {
     function  clicnavtop(){
         window.scrollTo({top:0})
       }
-    const {user, saveToken, clearToken} = useContext(UserContext);
+    const {
+        user, 
+      //  saveToken, 
+        clearToken} = useContext(UserContext);
     const handleSignOut = () => {
         toast.warn('User Logged Out!', {
             position: "top-right",
@@ -51,7 +56,7 @@ function Navigator() {
                         {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}{/*Validation to don´t show logIn*/}
                         {user.token && <li><Button variant="dark" onClick={() => { handleSignOut(); clicnavtop(); }} className="link-menu">Log Out</Button></li>} {/*Validation to show button*/}
                     </ul>
-                     <Link className='Cart' to='/Cart'><Button variant='warning'><Icon.FaCartPlus/></Button></Link> 
+                     <Link className='Cart' to='/Cart' onClick={clicnavtop}><Button variant='warning'><Icon.FaCartPlus/></Button></Link> 
                 </nav>
             </div>
 
