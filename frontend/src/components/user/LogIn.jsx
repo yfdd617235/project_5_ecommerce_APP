@@ -17,6 +17,16 @@ function LogIn() {
 
   async function onSave(event) {
     event.preventDefault();
+    toast.info('Please wait, this process may take time!', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored'
+    })
     try {
       const response = await fetch('https://project-5-ecommerce-backend.onrender.com/auth/logIn', {
       // const response = await fetch('http://localhost:3001/auth/logIn', {
@@ -83,7 +93,7 @@ function LogIn() {
               <Form.Control type="email" name="email" value={form.email} onChange={onChange} placeholder="Type your email" /><br />
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" name="password" value={form.password} onChange={onChange} placeholder="Type your password" /><br />
-              <Button variant="warning" type="submit">
+              <Button variant="warning" type="submit" onClick={onSave}>
                 Submit
               </Button>
             </Form>

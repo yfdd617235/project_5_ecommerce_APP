@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d01e1b01.css",
-    "main.js": "/static/js/main.a5387ee5.js",
+    "main.js": "/static/js/main.486ab71c.js",
     "static/media/Tablet.jpg": "/static/media/Tablet.7a66ae5ca80923367c14.jpg",
     "static/media/Camera.jpg": "/static/media/Camera.e2d84bf67e6bdad61b84.jpg",
     "static/media/Laptop.jpg": "/static/media/Laptop.41f60aa0efb81de4c70f.jpg",
@@ -19,10 +19,10 @@
     "static/media/location.svg": "/static/media/location.8e51b8501cc97152349cbdd97ce8f087.svg",
     "index.html": "/index.html",
     "main.d01e1b01.css.map": "/static/css/main.d01e1b01.css.map",
-    "main.a5387ee5.js.map": "/static/js/main.a5387ee5.js.map"
+    "main.486ab71c.js.map": "/static/js/main.486ab71c.js.map"
   },
   "entrypoints": [
     "static/css/main.d01e1b01.css",
-    "static/js/main.a5387ee5.js"
+    "static/js/main.486ab71c.js"
   ]
 }
