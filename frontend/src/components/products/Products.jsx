@@ -7,6 +7,7 @@ import Smartwatch from './imgs/Smartwatch.jpg'
 import Cellphone from './imgs/Cellphone.jpg'
 import Portable_Screen from './imgs/Portable_Screen.jpg'
 import Tablet from './imgs/Tablet.jpg'
+import { toast } from 'react-toastify';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -34,6 +35,16 @@ function Products() {
   
   const addProd = (product) =>{
     addProductToCart(product)
+    toast.success('Product added to the cart!', {
+      position: "top-right",
+      autoClose: 3500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      })
   }
 
   // products.map((product) => {
@@ -53,14 +64,18 @@ function Products() {
               <Card style={{ width: '18rem' }} key={index} className='card text'>
                 <Card.Img variant="top" src={productImage} alt={product.name}/>
                 <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Title>
+                    <h4>{product.name}</h4><br />
+                    </Card.Title>
                   <Card.Text>
                     {product.description}
                   </Card.Text>
-                  <Card.Text>
+                  {/* <Card.Text>
                     Stock: {product.stock}
-                  </Card.Text>
-                  <Button variant="dark">Price {product.price} USD</Button>
+                  </Card.Text> */}
+                  <Card.Text>
+                  <h6>Price {product.price} USD</h6>
+                  </Card.Text>  
                   <Button variant="warning" onClick={() => addProd(product)}> Add to Cart </Button>
                 </Card.Body>
               </Card>

@@ -40,7 +40,7 @@ function LogIn() {
       if (response.ok) {
         const result = await response.json();
         saveUserProfile(result.userProfile)
-        // await Promise.all([
+         await Promise.all([
           saveToken(result.token),
           navigate('/Profile'),
           toast.success('User Logged!', {
@@ -53,7 +53,7 @@ function LogIn() {
             progress: undefined,
             theme: 'colored'
           })
-        // ]);
+        ]);
       } else {
         //Manage error of the server
         const errorData = await response.json();

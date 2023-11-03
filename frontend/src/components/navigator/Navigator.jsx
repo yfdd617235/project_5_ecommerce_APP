@@ -30,10 +30,10 @@ function Navigator() {
     };
 
     //This is for: If user press F5 or refresh the website, the token won´t be erased
-    useEffect(() => {
-        const localToken = localStorage.getItem('token')
-        saveToken(localToken)
-    }, []);
+    // useEffect(() => {
+    //     const localToken = localStorage.getItem('token')
+    //     saveToken(localToken)
+    // }, []);
 
     return (
         <>
