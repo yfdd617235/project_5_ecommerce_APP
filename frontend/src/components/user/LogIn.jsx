@@ -19,7 +19,7 @@ function LogIn() {
     event.preventDefault();
     toast.info('Please wait, this process may take time!', {
       position: 'top-center',
-      autoClose: 10000,
+      autoClose: 40000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
