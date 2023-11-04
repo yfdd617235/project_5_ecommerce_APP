@@ -57,17 +57,26 @@
   }
 
 .link-menu{
-    color: #d2e6ff;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 10px;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    /* text-shadow: 2px 2px 4px rgb(0, 0, 0); */
     /* border: solid rgb(255, 0, 0); */
 }
 
 .link-menu:hover{
-    color: #ffffff;
+    /* color: #d3ff10; */
+    border: 2px solid white;
+
     /* border: solid rgb(255, 0, 0);  #FFCA2C */
+}
+
+.logOutBtn{
+    background-color: #000000;
+    border: solid white;
+    font-weight:lighter;
+    /* border: none; */
 }
 
 .Cart{

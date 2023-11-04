@@ -54,7 +54,7 @@ function Navigator() {
                         {user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/Profile">Profile</NavLink></li>}
                         {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>}
                         {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}{/*Validation to don´t show logIn*/}
-                        {user.token && <li><Button variant="dark" onClick={() => { handleSignOut(); clicnavtop(); }} className="link-menu">Log Out</Button></li>} {/*Validation to show button*/}
+                        {user.token && <li><Button className='logOutBtn link-menu' onClick={() => { handleSignOut(); clicnavtop(); }}>Log Out</Button></li>} {/*Validation to show button*/}
                     </ul>
                      <Link className='Cart' to='/Cart' onClick={clicnavtop}><Button variant='warning'><Icon.FaCartPlus/></Button></Link> 
                 </nav>

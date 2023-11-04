@@ -17,12 +17,12 @@ function LogIn() {
 
   async function onSave(event) {
     event.preventDefault();
-    toast.info('Please wait, this process may take time!', {
+    toast.info('Please wait... This process may take time!', {
       position: 'top-center',
-      autoClose: 40000,
+      autoClose: 100000,
       hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
+      closeOnClick: false,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
       theme: 'colored'
@@ -38,6 +38,7 @@ function LogIn() {
       });
 
       if (response.ok) {
+        toast.dismiss(); //Delete the first toast (toast.info)
         const result = await response.json();
         saveUserProfile(result.userProfile)
          await Promise.all([
