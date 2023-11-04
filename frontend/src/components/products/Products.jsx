@@ -29,8 +29,19 @@ function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
+    toast.info('Loading...!', {
+      position: "top-right",
+      autoClose: 1000000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      })
     fetch('https://project-5-ecommerce-backend.onrender.com/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
     // fetch('http://localhost:3001/products/getProductsList').then(req =>req.json()).then(result => setProducts(result.data))
+    .then(toast.dismiss())
   },[])
   
   const addProd = (product) =>{

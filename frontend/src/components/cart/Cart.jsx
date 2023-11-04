@@ -1,8 +1,8 @@
 // export default Cart;
 
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import { CartContext } from '../../context/cartContext'
-import { Row, Col, ListGroup} from 'react-bootstrap'
+import { Row, Col, ListGroup } from 'react-bootstrap'
 import CartItem from './CartItem'
 
 // import { PayPalButtons } from '@paypal/react-paypal-js'
@@ -50,6 +50,9 @@ function Cart() {
     // }
     return (
         <>
+            <div className='main-title'>
+                <h2>CART</h2>
+            </div ><br />
             <div>
                 {cart.items && cart.items.length > 0 ?
                     (
@@ -60,7 +63,7 @@ function Cart() {
                                         <ListGroup.Item>
                                             <Row>
                                                 <Col md={2}>
-                                                    <h5>Quantity</h5> 
+                                                    <h5>Quantity</h5>
                                                 </Col>
                                                 <Col>
                                                     <h5>Product</h5>
@@ -78,9 +81,9 @@ function Cart() {
                                         </ListGroup.Item>
                                         {
                                             cart.items.map((item, index) => {
-                                                return(
+                                                return (
                                                     <ListGroup.Item key={index}>
-                                                            <CartItem  item = {item}/>
+                                                        <CartItem item={item} />
                                                     </ListGroup.Item>
                                                 )
                                             })
@@ -108,10 +111,10 @@ function Cart() {
                         </>
                     ) : (
                         <>
-                        <br /><br /><br /><br /><br />
-                        <h1>No products in the Cart</h1>
-                        <br /><br /><br /><br /><br />
-                        </>  
+                            <br /><br /><br /><br /><br />
+                            <h1>No products in the Cart</h1>
+                            <br /><br /><br /><br /><br />
+                        </>
                     )
                 }
             </div>
