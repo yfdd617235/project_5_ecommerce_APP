@@ -75,7 +75,7 @@
 .logOutBtn{
     background-color: #000000;
     border: solid white;
-    font-weight:lighter;
+    /* font-weight:lighter; */
     /* border: none; */
 }
 

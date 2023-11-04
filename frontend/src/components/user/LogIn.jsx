@@ -61,6 +61,7 @@ function LogIn() {
         throw new Error(errorData.message || 'Invalid credentials. Please try again.');
       }
     } catch (error) {
+      toast.dismiss(); //Delete the first toast (toast.info)
       toast.error(error.message, {
         position: 'top-right',
         autoClose: 3500,

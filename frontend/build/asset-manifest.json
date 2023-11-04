@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.dd744d70.css",
-    "main.js": "/static/js/main.4acb9796.js",
+    "main.css": "/static/css/main.5d15be09.css",
+    "main.js": "/static/js/main.8e7566a2.js",
     "static/media/Tablet.jpg": "/static/media/Tablet.7a66ae5ca80923367c14.jpg",
     "static/media/Camera.jpg": "/static/media/Camera.e2d84bf67e6bdad61b84.jpg",
     "static/media/Laptop.jpg": "/static/media/Laptop.41f60aa0efb81de4c70f.jpg",
@@ -18,11 +18,11 @@
     "static/media/wapp.svg": "/static/media/wapp.2e43220808c4ccaef7f562055d457a93.svg",
     "static/media/location.svg": "/static/media/location.8e51b8501cc97152349cbdd97ce8f087.svg",
     "index.html": "/index.html",
-    "main.dd744d70.css.map": "/static/css/main.dd744d70.css.map",
-    "main.4acb9796.js.map": "/static/js/main.4acb9796.js.map"
+    "main.5d15be09.css.map": "/static/css/main.5d15be09.css.map",
+    "main.8e7566a2.js.map": "/static/js/main.8e7566a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd744d70.css",
-    "static/js/main.4acb9796.js"
+    "static/css/main.5d15be09.css",
+    "static/js/main.8e7566a2.js"
   ]
 }

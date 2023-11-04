@@ -52,7 +52,7 @@ function Navigator() {
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/">Home</NavLink></li> 
                         <li><NavLink onClick={clicnavtop} className="link-menu" to="/Products">Products</NavLink></li>
                         {user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/Profile">Profile</NavLink></li>}
-                        {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">SignUp</NavLink></li>}
+                        {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/SignUp">Sign Up</NavLink></li>}
                         {!user.token && <li><NavLink onClick={clicnavtop} className="link-menu" to="/LogIn">LogIn</NavLink></li>}{/*Validation to don´t show logIn*/}
                         {user.token && <li><Button className='logOutBtn link-menu' onClick={() => { handleSignOut(); clicnavtop(); }}>Log Out</Button></li>} {/*Validation to show button*/}
                     </ul>
